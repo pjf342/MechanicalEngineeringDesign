@@ -1,129 +1,6 @@
 import numpy as np
 import math
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
 import sys
-
-
-class SCWWindow(QMainWindow):
-
-    def __init__(self):
-        super().__init__()
-        self.scw = None
-        self.material_number = None
-        self.sp_value = None
-        self.new_yield = None
-        self.new_ultimate = None
-        self.true_strain = None
-        self.setWindowTitle('Strength and Cold Work - Metric')
-        self.x = 1000  # GUI size parameters
-        self.y = 1000
-        self.width = 700
-        self.height = 300
-        self.setGeometry(self.x, self.y, self.width, self.height)
-
-        self.info_label1 = QLabel('Cold working puts stress on the material beyond its yield strength to a point in '
-                                  'the plastic deformation region', self)
-        self.info_label2 = QLabel('and then the load is removed. This increases the ''material\'s yield strength,'
-                                  ' however makes the material less', self)
-        self.info_label3 = QLabel('ductile and more brittle.', self)
-
-        self.materials_label = QLabel('Material', self)
-        self.cold_work_label = QLabel('Cold Work (%)', self)
-
-        self.cb = QComboBox(self)
-        self.cb.addItems(['1018 Steel', '1144 Steel', '1212 Steel', '1045 Steel', '4142 Steel', '303 Stainless Steel',
-                          '304 Stainless Steel', '2011 Aluminum Alloy', '2024 Aluminum Alloy', '7075 Aluminum Alloy'])
-
-        self.sp = QSpinBox(self)
-        self.sp.setRange(0, 99)
-
-        self.confirm_btn = QPushButton('Confirm', self)
-        self.confirm_btn.setEnabled(True)
-        self.confirm_btn.clicked.connect(self.confirm_button)
-
-        self.new_yield_label = QLabel('New Yield Strength:', self)
-        self.new_ultimate_label = QLabel('New Ultimate Strength:', self)
-        self.true_strain_label = QLabel('True Strain:', self)
-
-        self.info_label1.setFont(QFont('Arial', 10))
-        self.info_label1.adjustSize()
-        self.info_label2.setFont(QFont('Arial', 10))
-        self.info_label2.adjustSize()
-        self.info_label3.setFont(QFont('Arial', 10))
-        self.info_label3.adjustSize()
-        self.materials_label.setFont(QFont('Arial', 12))
-        self.cb.setFont(QFont('Arial', 12))
-        self.cold_work_label.setFont(QFont('Arial', 12))
-        self.sp.setFont(QFont('Arial', 12))
-        self.confirm_btn.setFont(QFont('Arial', 12))
-        self.new_yield_label.setFont(QFont('Arial', 12))
-        self.new_ultimate_label.setFont(QFont('Arial', 12))
-        self.true_strain_label.setFont(QFont('Arial', 12))
-
-        self.info_label1.move(10, 10)
-        self.info_label2.move(10, 30)
-        self.info_label3.move(10, 50)
-        self.materials_label.move(20, 100)
-        self.materials_label.adjustSize()
-        self.cb.move(170, 100)
-        self.cb.adjustSize()
-        self.cold_work_label.move(20, 150)
-        self.cold_work_label.adjustSize()
-        self.sp.move(170, 150)
-        self.sp.adjustSize()
-        self.confirm_btn.move(100, 200)
-        self.confirm_btn.adjustSize()
-        self.new_yield_label.move(400, 100)
-        self.new_yield_label.adjustSize()
-        self.new_ultimate_label.move(400, 150)
-        self.new_ultimate_label.adjustSize()
-        self.true_strain_label.move(400, 200)
-        self.true_strain_label.adjustSize()
-
-    def confirm_button(self):
-        self.sp_value = self.sp.value()
-        material_index = self.cb.currentIndex()
-        if material_index == 0:
-            self.material_number = 1018
-        if material_index == 1:
-            self.material_number = 1144
-        if material_index == 2:
-            self.material_number = 1212
-        if material_index == 3:
-            self.material_number = 1045
-        if material_index == 4:
-            self.material_number = 4142
-        if material_index == 5:
-            self.material_number = 303
-        if material_index == 6:
-            self.material_number = 304
-        if material_index == 7:
-            self.material_number = 2011
-        if material_index == 8:
-            self.material_number = 2024
-        if material_index == 9:
-            self.material_number = 7075
-
-        StrengthAndColdWork(self.material_number, self.sp_value)
-        self.new_yield = StrengthAndColdWork(self.material_number, self.sp_value).new_yield
-        self.new_ultimate = StrengthAndColdWork(self.material_number, self.sp_value).new_ultimate
-        self.true_strain = StrengthAndColdWork(self.material_number, self.sp_value).true_strain
-        self.new_yield_label.setText(f'New Yield Strength: {round(float(self.new_yield), 2)} MPa')
-        self.new_ultimate_label.setText(f'New Ultimate Strength: {round(float(self.new_ultimate), 2)} MPa')
-        self.true_strain_label.setText(f'True Strain: {round(float(self.true_strain), 2)}')
-
-        self.materials_label.adjustSize()
-        self.cb.adjustSize()
-        self.cold_work_label.adjustSize()
-        self.sp.adjustSize()
-        self.confirm_btn.adjustSize()
-        self.new_yield_label.adjustSize()
-        self.new_ultimate_label.adjustSize()
-        self.true_strain_label.adjustSize()
-
-
 
 
 class Tables:
@@ -212,14 +89,9 @@ class StrengthAndColdWork:
         self.new_yield = self.coefficient * self.true_strain ** self.strain_str
         self.new_ultimate = self.ultimate / (1 - self.cold_work_percent)
 
+
 if __name__ == "__main__":
     pi = math.pi
     tab = Tables()
-    mat_num = 1018
-    cw_percent = 0
-    scw = StrengthAndColdWork(mat_num, cw_percent)
 
-    app = QApplication(sys.argv)
-    w = SCWWindow()
-    w.show()
-    sys.exit(app.exec_())
+
