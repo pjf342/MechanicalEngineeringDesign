@@ -1,6 +1,0 @@
-Create an app:
-python manage.py startapp "name"
-
-Model migrations:
-python manage.py makemigrations
-python manage.py migrate
