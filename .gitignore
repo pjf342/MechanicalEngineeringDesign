@@ -11,4 +11,4 @@ __pycache__/
 venv/
 .idea/
 env/
-.help/
+help/
