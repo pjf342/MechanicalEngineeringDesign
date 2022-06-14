@@ -20,8 +20,7 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-<<<<<<< HEAD
+# SECURITY WARNING: keep the secret key used in production secret! <<<<<<< HEAD
 # Will be changed in final production, don't bother
 SECRET_KEY = 'django-insecure-uh6m)u$_kmxgzjz9ppw&hbw#4q=80za!w#xdd$+%1va&woxa_a'
 =======
