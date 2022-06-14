@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+    <title>Mechanical Engineering Design</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
-    <h1>Hello {{ request.user }}</h1>
-    {% include 'navbar.html' %}
-    {% block content %}
+  <div class="navbar">
+    <div class="container">
+      <nav>
+        <a href="http://127.0.0.1:8000/home" class="brand">Mechanical Engineering <span>Design</span></a>
+        <ul class="primary-nav">
+          <li><a href="http://127.0.0.1:8000/home">Home</a></li>
+          <li><a>Calculators</a>
+            <ul>
+              <li><a href="http://127.0.0.1:8000/strength_and_cold_working">Strength and Cold Working</a></li>
+              <li><a href="http://127.0.0.1:8000/principal_stress">Principal Stresses</a></li>
+              <li><a href="http://127.0.0.1:8000/pressure_vessel_stress">Pressure Vessel Stresses</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
 
-    {% endblock %}
-
+    </div>
+  </div>
 </body>
+
 </html>
