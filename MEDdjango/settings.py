@@ -23,9 +23,6 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 # SECURITY WARNING: keep the secret key used in production secret! <<<<<<< HEAD
 # Will be changed in final production, don't bother
 SECRET_KEY = 'django-insecure-uh6m)u$_kmxgzjz9ppw&hbw#4q=80za!w#xdd$+%1va&woxa_a'
-=======
-SECRET_KEY = secret key
->>>>>>> 65cad2f023b07873b810ca7fa008d1bbd4f12edb
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
