@@ -19,7 +19,7 @@ import pages.views as pg
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', pg.home_view, name='home'),
+    path('', pg.home_view, name='home'),
     path('pressure_vessel_stress/', pg.pvs_view, name='pv'),
     path('principal_stress/', pg.princ_str_view, name='principal'),
     path('strength_and_cold_working/', pg.cw_view, name='cw'),
