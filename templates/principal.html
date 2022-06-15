@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<title>Principal Stresses</title>
-<h1>Principal Stresses</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_a }}
+    <label>XXXXXXXXXXXXXXXXXXXXXXXXXXX</label>
+    <input type="submit" value="Save" />
+</form>
 {% endblock %}
