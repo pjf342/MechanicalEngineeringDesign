@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .forms import PVSform
 
 
 def home_view(request, *args, **kwargs):
@@ -7,4 +8,5 @@ def home_view(request, *args, **kwargs):
 
 
 def pvs_view(request, *args, **kwargs):
-    return render(request, 'pvs.html', {})
+    form = PVSform
+    return render(request, 'pvs.html', {'form': form})
