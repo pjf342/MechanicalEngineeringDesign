@@ -8,11 +8,3 @@ def home_view(request, *args, **kwargs):
 
 def pvs_view(request, *args, **kwargs):
     return render(request, 'pvs.html', {})
-
-
-def princ_str_view(request, *args, **kwargs):
-    return render(request, 'principal.html', {})
-
-
-def cw_view(request, *args, **kwargs):
-    return render(request, 'cw.html', {})
