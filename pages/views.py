@@ -8,5 +8,9 @@ def home_view(request, *args, **kwargs):
 
 
 def pvs_view(request, *args, **kwargs):
+    if request.method == 'POST':
+        form = PVSform(request.POST)
+        if form.is_valid():
+            form.save()
     form = PVSform
     return render(request, 'pvs.html', {'form': form})
