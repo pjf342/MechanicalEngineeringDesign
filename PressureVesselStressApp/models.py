@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 
 class PressureVesselStressApp(models.Model):
 
@@ -21,7 +19,8 @@ class PressureVesselStressApp(models.Model):
 
     surface = models.CharField(max_length=100, choices=SURFACES)
     capped = models.CharField(max_length=100, choices=CAP)
-    pouter = models.FloatField(max_length=100)
-    pinner = models.FloatField(max_length=100)
-    douter = models.FloatField(max_length=100)
-    dinner = models.FloatField(max_length=100)
+    pouter = models.FloatField('Outer Pressure', max_length=100)
+    pinner = models.FloatField('Inner Pressure', max_length=100)
+    douter = models.FloatField('Outer Diameter', max_length=100)
+    dinner = models.FloatField('Inner Diameter', max_length=100)
+

@@ -1,39 +1,12 @@
 {% extends 'base.html' %}
 
-  {% block body %}
-<form id="pvs-form" method="POST">
-    <div class="surface-input">
-        <label>Surface?</label>
-        <select id="surface-choices">
-            <option value="IN">Inner Surface</option>
-            <option value="OUT">Outer Surface</option>
-        </select>
-    </div>
-    <div class="capped-input">
-        <label>Capped?</label>
-        <select id="capped-choices">
-            <option value="C">Capped</option>
-            <option value="U">Uncapped</option>
-        </select>
-    </div>
-    <div class="pouter-input">
-         <label>Outer Pressure</label>
-    <input type="number" step=0.01 />
-    </div>
+  {% block content %}
+<form action="" id="pvs-form" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
 
-    <div class="pinner-input">
-     <label>Inner Pressure</label>
-    <input type="number" step=0.01 />
-    </div>
-
-    <div class="douter-input">
-     <label>Outer Diameter</label>
-    <input type="number" step=0.01 />
-    </div>
-
-    <div class="dinner-input">
-     <label>Inner Diameter</label>
-    <input type="number" step=0.01 />
+    <div class="submit-btn">
+        <input type="submit" value="Submit" >
     </div>
 </form>
 
