@@ -22,3 +22,7 @@ class PVSmodel(models.Model):
     pouter = models.FloatField(name='Outer Pressure')
     dinner = models.FloatField(name='Inner Diameter')
     douter = models.FloatField(name='Outer Diameter')
+
+    @property
+    def calculate(self):
+        return 23
