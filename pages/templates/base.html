@@ -1,35 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
 {% load static %}
-
-
-<head>
-  <meta charset="UTF-8">
-    <title>Mechanical Engineering Design</title>
-    <link rel="stylesheet" href="{% static 'base_style.css' %}">
-
-</head>
-<body>
-  <div class="navbar">
-    <div class="container">
-      <nav>
-        <a href="{% url 'home' %}" class="brand">Mechanical Engineering <span>Design</span></a>
-        <ul class="primary-nav">
-          <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a>Calculators</a>
-            <ul>
-              <li><a href="">Strength and Cold Working</a></li>
-              <li><a href="">Principal Stresses</a></li>
-              <li><a href="{% url 'pv' %}">Pressure Vessel Stresses</a></li>
-            </ul>
-          </li>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Exo:ital,wght@1,500;1,900&display=swap" rel="stylesheet">
+  </head>
+  <body style="background-color:gray">
+  <nav class="navbar navbar-expand-lg" style="background-color:lightgray">
+    <a href="{% url 'home' %}" class="navbar-brand mb-0 h1" style="font-size:2.5em; font-family:'Chakra Petch'; letter-spacing: -.05em">
+      <img class="brand align-center" src="{% static 'catcoffee.png' %}" width="80" height="80" style="border-radius:50%"><strong>
+      Mechanical Engineering <span style="color:blue">Design</span>
+    </strong></a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="dropdown">
+        <a class="btn btn-info dropdown-toggle" style="background-color:gray" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          Calculators
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a class="dropdown-item" href="#">Strength and Cold Working</a></li>
+          <li><a class="dropdown-item" href="#">Principal Stresses</a></li>
+          <li><a class="dropdown-item" href="{% url 'pv' %}">Pressure Vessel Stress</a></li>
         </ul>
-      </nav>
-
-    </div>
-  </div>
-
+      </div>
+          </div>
+  </nav>
   {% block content %}
   {% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
+

@@ -2,5 +2,12 @@
 {% load static %}
 
 {% block content %}
-
+<div class="card" style="width: 18rem;">
+  <img src="{% static 'PVcard.PNG' %}" class="card-img-top" alt="aigen_pv">
+  <div class="card-body text-bg-dark">
+    <h5 class="card-title">Pressure Vessel Stresses</h5>
+    <p class="card-text">A pressure vessel is a vessel of pressure.</p>
+    <a href="{% url 'pv' %}" class="btn btn-primary">Go to Calculator</a>
+  </div>
+</div>
 {% endblock %}
