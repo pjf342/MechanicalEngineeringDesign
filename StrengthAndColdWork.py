@@ -42,6 +42,9 @@ class Tables:
         return switch.get(int(index), "Invalid Condition")
 
 
+tab = Tables()
+
+
 class StrengthAndColdWork:
     def __init__(self, material_number, cold_work_percent):
         super().__init__()
@@ -92,6 +95,6 @@ class StrengthAndColdWork:
 
 if __name__ == "__main__":
     pi = math.pi
-    tab = Tables()
+
 
 
