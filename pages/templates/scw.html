@@ -5,7 +5,18 @@
 <form action="" id="scw-form" method="POST">
     {% csrf_token %}
 
+    {{ SCW_input.as_p }}
+
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+    {% if true_strain != None %}
+    {{ true_strain }} |
+    {% endif %}
+    {% if new_yield != None %}
+    {{ new_yield }} |
+    {% endif %}
+    {% if new_ultimate != None %}
+    {{ new_ultimate }} |
+    {% endif %}
   {% endblock %}
 
