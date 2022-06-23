@@ -2,11 +2,15 @@
 {% load static %}
 
 {% block content %}
-<div class="card" style="width: 18rem;">
+<div id="pvs-card" class="card" style="width: 18rem;">
   <img src="{% static 'PVcard.PNG' %}" class="card-img-top" alt="aigen_pv">
   <div class="card-body text-bg-dark">
-    <h5 class="card-title">Pressure Vessel Stresses</h5>
-    <p class="card-text">A pressure vessel is a vessel of pressure.</p>
+    <h5 class="card-title">Cylindrical Pressure Vessel Stresses</h5>
+    <p class="card-text">The pressure vessel can be capped or uncapped. Stresses can be calculated on the inner
+      or outer walls.</p>
+    <p class="card-text">A carbonated drink is an example of a capped/closed pressure vessel, while a gun barrel is an
+      example of an uncapped/open pressure vessel.</p>
+    <p class="card-text">If the vessel is closed/capped, there will be an axial stress.</p>
     <a href="{% url 'pv' %}" class="btn btn-primary">Go to Calculator</a>
   </div>
 </div>
