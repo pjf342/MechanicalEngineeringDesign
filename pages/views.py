@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from .forms import PVSform
+import PressureVesselStress
+from .forms import inputPVSform
 
 
 def home_view(request, *args, **kwargs):
@@ -9,18 +10,32 @@ def home_view(request, *args, **kwargs):
 
 def pvs_view(request, *args, **kwargs):
     user = request.user
+    st = None
+    sr = None
+    sa = None
     if request.method == 'POST':
-        PVS_input = PVSform(request.POST)
+        PVS_input = inputPVSform(request.POST)
         if PVS_input.is_valid():
-            surface = request.POST.get('surface')
-            capped = request.POST.get('capped')
-            po = request.POST.get('po')
-            pi = request.POST.get('pi')
-            do = request.POST.get('do')
-            di = request.POST.get('di')
-            print(po)
-    else:
-        PVS_input = PVSform()
+            if request.POST.get('surface') == 'IN':
+                surface = False
+            else:
+                surface = True
+            if request.POST.get('capped') == 'C':
+                capped = True
+            else:
+                capped = False
+            po = float(request.POST.get('po'))
+            pi = float(request.POST.get('pi'))
+            do = float(request.POST.get('do'))
+            di = float(request.POST.get('di'))
 
-    return render(request, 'pvs.html', {'PVS_input': PVS_input})
+            PVS = PressureVesselStress.PressureVesselStress(surface, capped, po, pi, do, di)
+            st = float(PVS.stress_t * 1000)
+            sr = float(PVS.stress_r * 1000)
+            sa = float(PVS.stress_a * 1000)
+
+    else:
+        PVS_input = inputPVSform()
+    PVS_data = {'PVS_input': PVS_input, 'st': st, 'sr': sr, 'sa': sa}
+    return render(request, 'pvs.html', PVS_data)
 

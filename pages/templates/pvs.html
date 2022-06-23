@@ -6,9 +6,20 @@
     {% csrf_token %}
 
 
-{{ PVS_input.as_p }}
+    {{ PVS_input.as_p }}
+
+
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+    {% if st != None %}
+    {{ st }}
+    {% endif %}
+    {% if sr != None %}
+    {{ sr }}
+    {% endif %}
+    {% if sa != None %}
+    {{ sa }}
+    {% endif %}
   {% endblock %}
 

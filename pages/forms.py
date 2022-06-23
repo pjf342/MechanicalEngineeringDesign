@@ -1,5 +1,4 @@
 from django import forms
-from django.forms import ModelForm
 
 
 SURFACE_CHOICES = [
@@ -12,10 +11,10 @@ CAPPED_CHOICES = [
 ]
 
 
-class PVSform(forms.Form):
+class inputPVSform(forms.Form):
     surface = forms.CharField(widget=forms.Select(choices=SURFACE_CHOICES))
     capped = forms.CharField(widget=forms.Select(choices=CAPPED_CHOICES))
-    po = forms.FloatField(label='', widget=forms.NumberInput(attrs={'placeholder': 'Outer Pressure (kPa)'}))
-    pi = forms.FloatField(label='', widget=forms.NumberInput(attrs={'placeholder': 'Inner Pressure (kPa)'}))
-    do = forms.FloatField(label='', widget=forms.NumberInput(attrs={'placeholder': 'Outer Diameter (mm)'}))
-    di = forms.FloatField(label='', widget=forms.NumberInput(attrs={'placeholder': 'Inner Diameter (mm)'}))
+    po = forms.FloatField(label='Outer Pressure', widget=forms.NumberInput(attrs={'placeholder': '(kPa)'}))
+    pi = forms.FloatField(label='Inner Pressure', widget=forms.NumberInput(attrs={'placeholder': '(kPa)'}))
+    do = forms.FloatField(label='Outer Diameter', widget=forms.NumberInput(attrs={'placeholder': '(mm)'}))
+    di = forms.FloatField(label='Inner Diameter', widget=forms.NumberInput(attrs={'placeholder': '(mm)'}))
