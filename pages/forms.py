@@ -1,23 +1,21 @@
 from django import forms
 from django.forms import ModelForm
-from .models import PVSmodel
 
 
-class PVSform(ModelForm):
-    class Meta:
-        model = PVSmodel
-        fields = ('Surface', 'Capped?', 'Inner Pressure', 'Outer Pressure', 'Inner Diameter', 'Outer Diameter')
-        labels = {
-            'Surface':'',
-            'Capped?':'',
-            'Inner Pressure':'',
-            'Outer Pressure':'',
-            'Inner Diameter':'',
-            'Outer Diameter':'',
-        }
-        widgets = {
-            'Inner Pressure': forms.NumberInput(attrs={'placeholder':'Inner Pressure'}),
-            'Outer Pressure': forms.NumberInput(attrs={'placeholder':'Outer Pressure'}),
-            'Inner Diameter': forms.NumberInput(attrs={'placeholder':'Inner Diameter'}),
-            'Outer Diameter': forms.NumberInput(attrs={'placeholder':'Outer Diameter'}),
-        }
+SURFACE_CHOICES = [
+    ('IN', 'Inner Surface'),
+    ('OUT', 'Outer Surface'),
+]
+CAPPED_CHOICES = [
+    ('C', 'Capped'),
+    ('U', 'Uncapped'),
+]
+
+
+class PVSform(forms.Form):
+    surface = forms.CharField(widget=forms.Select(choices=SURFACE_CHOICES))
+    capped = forms.CharField(widget=forms.Select(choices=CAPPED_CHOICES))
+    po = forms.FloatField(label='', widget=forms.NumberInput(attrs={'placeholder': 'Outer Pressure (kPa)'}))
+    pi = forms.FloatField(label='', widget=forms.NumberInput(attrs={'placeholder': 'Inner Pressure (kPa)'}))
+    do = forms.FloatField(label='', widget=forms.NumberInput(attrs={'placeholder': 'Outer Diameter (mm)'}))
+    di = forms.FloatField(label='', widget=forms.NumberInput(attrs={'placeholder': 'Inner Diameter (mm)'}))
