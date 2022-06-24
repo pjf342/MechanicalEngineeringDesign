@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 import PressureVesselStress, StrengthAndColdWork, PrincipalStresses
 from .forms import inputPVSform, inputSCWform, inputPSform
+from django.contrib.auth.forms import UserCreationForm
 
 
 def home_view(request, *args, **kwargs):
@@ -94,7 +95,12 @@ def ps_view(request, *args, **kwargs):
 
 
 def register_view(request, *args, **kwargs):
-    return render(request, 'register.html', {})
+    form = UserCreationForm()
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+    return render(request, 'register.html', {'form': form})
 
 
 def login_view(request, *args, **kwargs):
