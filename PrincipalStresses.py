@@ -59,3 +59,4 @@ class PrincipalStresses:
 if __name__ == "__main__":
     pi = math.pi
     d = u"\u00b0"
+    # PS = PrincipalStresses(2,2,3)
