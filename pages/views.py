@@ -91,3 +91,11 @@ def ps_view(request, *args, **kwargs):
     PS_data = {'PS_input': PS_input, 's_avg': s_avg,  's1': s1, 's2': s2, 'phi1': phi1, 'phi2': phi2, 't_max': t_max,
                'shear_phi1': shear_phi1, 'shear_phi2': shear_phi2,}
     return render(request, 'ps.html', PS_data)
+
+
+def register_view(request, *args, **kwargs):
+    return render(request, 'register.html', {})
+
+
+def login_view(request, *args, **kwargs):
+    return render(request, 'login.html', {})
