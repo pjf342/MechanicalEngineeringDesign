@@ -36,3 +36,9 @@ class inputSCWform(forms.Form):
     material_number = forms.CharField(widget=forms.Select(choices=MATERIAL_CHOICES))
     cold_work_percent = forms.IntegerField(label='Cold Work Percent', min_value=0, max_value=100,
                                            widget=forms.NumberInput(attrs={'placeholder': '(%)'}))
+
+
+class inputPSform(forms.Form):
+    sigma_x = forms.FloatField(label='Sigma X', widget=forms.NumberInput(attrs={'placeholder': ''}))
+    sigma_y = forms.FloatField(label='Sigma Y', widget=forms.NumberInput(attrs={'placeholder': ''}))
+    tau_xy = forms.FloatField(label='Tau XY', widget=forms.NumberInput(attrs={'placeholder': ''}))

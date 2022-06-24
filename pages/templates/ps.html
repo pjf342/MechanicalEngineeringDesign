@@ -4,8 +4,32 @@
 
 <form action="" id="scw-form" method="POST">
     {% csrf_token %}
-    {% PS_input %}
+    {{ PS_input.as_p }}
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+    {% if s_avg != None %}
+    {{ s_avg }} |
+    {% endif %}
+    {% if s1 != None %}
+    {{ s1 }} |
+    {% endif %}
+    {% if s2 != None %}
+    {{ s2 }} |
+    {% endif %}
+    {% if phi1 != None %}
+    {{ phi1 }} |
+    {% endif %}
+    {% if phi2 != None %}
+    {{ phi2 }} |
+    {% endif %}
+    {% if t_max != None %}
+    {{ t_max }} |
+    {% endif %}
+    {% if shear_phi1 != None %}
+    {{ shear_phi1 }} |
+    {% endif %}
+    {% if shear_phi2 != None %}
+    {{ shear_phi2 }} |
+    {% endif %}
   {% endblock %}
