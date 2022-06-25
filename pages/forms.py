@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 
 SURFACE_CHOICES = [
@@ -42,3 +44,9 @@ class inputPSform(forms.Form):
     sigma_x = forms.FloatField(label='Sigma X', widget=forms.NumberInput(attrs={'placeholder': ''}))
     sigma_y = forms.FloatField(label='Sigma Y', widget=forms.NumberInput(attrs={'placeholder': ''}))
     tau_xy = forms.FloatField(label='Tau XY', widget=forms.NumberInput(attrs={'placeholder': ''}))
+
+
+class RegisterForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
