@@ -13,3 +13,5 @@ sqlparse==0.4.2
 tornado==6.1
 tzdata==2022.1
 whitenoise==6.2.0
+
+python-dotenv~=0.20.0
