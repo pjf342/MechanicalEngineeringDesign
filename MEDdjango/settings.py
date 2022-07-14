@@ -18,7 +18,7 @@ TEMPLATE_DIR = BASE_DIR.joinpath("pages/templates")
 SECRET_KEY = 'SECRET_KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['IPV4', 'HKA']
 
