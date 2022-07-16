@@ -1,13 +1,30 @@
 {% extends 'base.html' %}
-
-  {% block content %}
+{% load static %}
+{% block content %}
 
 <form action="" id="scw-form" method="POST">
     {% csrf_token %}
+    <div class="container" id="SCW_container" style="background-color:lightgray; margin:3rem;padding:1.2rem;">
+      <div class="row" id="row1">
+        <div class="col" id="col1-1" style="margin:0px 0px 1rem 0px;">
+            <a style="font-family:'Chakra Petch';">{{ SCW_input.material_number.label }}</a>
+            <a style="font-family:'Chakra Petch';">{{ SCW_input.material_number }}</a>
+        </div>
+      </div>
+      <div class="row" id="row2">
+        <div class="col" id="col2-1" style="margin:0px 0px 1rem 0px;">
+            <a style="font-family:'Chakra Petch';">{{ SCW_input.cold_work_percent.label }}</a>
+            <i class="bi bi-info-circle" style="margin: 0rem .5rem 0rem 0rem" title="Cold work percentage is the amount of plastic deformation the material will experience in the cold working process."></i>
+            <a style="font-family:'Chakra Petch';">{{ SCW_input.cold_work_percent }}</a>
+        </div>
+      </div>
 
-    {{ SCW_input.as_p }}
-
-    <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="row" id="row3">
+        <div class="col" id="col3-1">
+          <button type="submit" class="btn" style="font-family:'Chakra Petch'; background-color:LightSteelBlue;border-color:black;">Submit</button>
+        </div>
+      </div>
+    </div>
 </form>
     {% if true_strain != None %}
     {{ true_strain }} |

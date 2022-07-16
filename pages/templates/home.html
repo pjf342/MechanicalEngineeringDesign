@@ -2,54 +2,48 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
+<div class="container" style="margin:3rem;padding:1.2rem;">
 
   <div class="row" id="row1">
 
     <div class="col" id="col1-1">
-      <div id="scw-card" class="card" style="width: 24rem;">
+      <div id="scw-card" class="card" style="width: 20rem;">
         <img src="{% static 'CWimg.png' %}" class="card-img-top" alt="aigen_cw">
         <div class="card-body text-bg-dark">
-          <h5 class="card-title">Strength and Cold Work</h5>
-          <p class="card-text">Strength.</p>
-          <p class="card-text">and.</p>
-          <p class="card-text">Cold Work.</p>
-          <a href="{% url 'scw' %}" class="btn btn-primary" style="font-family:'Chakra Petch';">Go to Calculator</a>
+          <h4 class="card-title" style="font-family:'Chakra Petch';color:SlateBlue;">Strength and Cold Work</h4>
+          <p class="card-text" style="font-family:'Chakra Petch';">Cold working a material will change its strengths. A new yield strength will be produced, as well as a new ultimate tensile strength due to a reduction in area. </p>
+          <p class="card-text" style="font-family:'Chakra Petch';">Some examples of a cold working process are extrusions through a die, shearing a material, and running a material through two rollers.</p>
+          <a href="{% url 'scw' %}" class="btn" style="font-family:'Chakra Petch';background-color:DarkGoldenRod;">Go to Calculator</a>
         </div>
       </div>
     </div>
-
     <div class="col" id="col1-2">
-      <div id="ps-card" class="card" style="width: 24rem;">
+      <div id="ps-card" class="card" style="width: 20rem;">
         <img src="{% static 'PScube_light.PNG' %}" class="card-img-top" alt="paint_cube">
         <div class="card-body text-bg-dark">
-          <h5 class="card-title">Principal Stresses</h5>
-          <p class="card-text">Principal stresses.</p>
-          <p class="card-text">Principal stresses.</p>
-          <p class="card-text">Principal stresses.</p>
-          <a href="{% url 'ps' %}" class="btn btn-primary" style="font-family:'Chakra Petch';">Go to Calculator</a>
+          <h4 class="card-title" style="font-family:'Chakra Petch';color:SlateBlue;">2D Principal Stresses</h4>
+          <p class="card-text" style="font-family:'Chakra Petch';">A 2D element can experience stresses (sigma) and shear stresses (tau).  </p>
+          <p class="card-text" style="font-family:'Chakra Petch';">At a certain orientation, the element can experience maximum stresses and shear stresses.</p>
+          <p class="card-text" style="font-family:'Chakra Petch';">This calculator will be able to provide the average normal stress, the principal stresses (sigma 1 and sigma 2) and the angle they occur at, and the maximum shear stress (tau) and the angle it occurs at.  </p>
+          <a href="{% url 'ps' %}" class="btn" style="font-family:'Chakra Petch';background-color:DarkGoldenRod;">Go to Calculator</a>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="row" id="row2">
-    <div class="col" id="col2-1">
-      <div id="pvs-card" class="card" style="width: 24rem;">
+    <div class="col" id="col1-3">
+      <div id="pvs-card" class="card" style="width: 20rem;">
         <img src="{% static 'PVcard.PNG' %}" class="card-img-top" alt="aigen_pv">
         <div class="card-body text-bg-dark">
-          <h5 class="card-title">Cylindrical Pressure Vessel Stresses</h5>
-          <p class="card-text">The pressure vessel can be capped or uncapped. Stresses can be calculated on the inner
+          <h4 class="card-title" style="font-family:'Chakra Petch';color:SlateBlue;">Cylindrical Pressure Vessel Stresses</h4>
+          <p class="card-text" style="font-family:'Chakra Petch';">The pressure vessel can be capped or uncapped. Stresses can be calculated on the inner
             or outer walls.</p>
-          <p class="card-text">A carbonated drink is an example of a capped/closed pressure vessel, while a gun barrel is an
+          <p class="card-text" style="font-family:'Chakra Petch';">A carbonated drink is an example of a capped/closed pressure vessel, while a gun barrel is an
             example of an uncapped/open pressure vessel.</p>
-          <p class="card-text">If the vessel is closed/capped, there will be an axial stress.</p>
-          <a href="{% url 'pv' %}" class="btn btn-primary" style="font-family:'Chakra Petch';">Go to Calculator</a>
+          <p class="card-text" style="font-family:'Chakra Petch';">If the vessel is closed/capped, there will be an axial stress.</p>
+          <a href="{% url 'pv' %}" class="btn" style="font-family:'Chakra Petch';background-color:DarkGoldenRod;">Go to Calculator</a>
         </div>
       </div>
     </div>
   </div>
-
 </div>
 
 {% endblock %}
