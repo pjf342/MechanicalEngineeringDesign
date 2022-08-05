@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="row" id="row2">
-        <div class="col" id="col2-1" style="margin:0px 0px 1rem 0px;">
+        <div class="col" id="col2-1" style="margin:0rem 0rem 1rem 0rem;">
             <a style="font-family:'Chakra Petch';">{{ SCW_input.cold_work_percent.label }}</a>
             <i class="bi bi-info-circle" style="margin: 0rem .5rem 0rem 0rem" title="Cold work percentage is the amount of plastic deformation the material will experience in the cold working process."></i>
             <a style="font-family:'Chakra Petch';">{{ SCW_input.cold_work_percent }}</a>
@@ -26,14 +26,30 @@
       </div>
     </div>
 </form>
-    {% if true_strain != None %}
-    {{ true_strain }} |
-    {% endif %}
-    {% if new_yield != None %}
-    {{ new_yield }} |
-    {% endif %}
-    {% if new_ultimate != None %}
-    {{ new_ultimate }} |
-    {% endif %}
-  {% endblock %}
+{% if new_yield != None %}
+<div class="container" id="output_container" style="background-color:lightgray; margin:3rem;padding:1.2rem;">
+    <div class="row" id="row4">
+        <div class="col" id="col4-1">
+            <p style="margin: 0rem 0rem 0rem 0rem;">New Yield Strength = {{ new_yield }} MPa</p>
+            <p>S'<sub>Y</sub> = &sigma;&epsilon;<sup>m</sup></p>
+            <p style="margin:-.75rem 0rem 0rem 1.5rem; font-size: .85rem">Where: S'<sub>Y</sub> = New yield strength</p>
+            <p style="margin:0rem 0rem 0rem 4.5rem; font-size: .85rem">&sigma;<sub>0</sub> = Coefficient strength</p>
+            <p style="margin:0rem 0rem 0rem 4.5rem; font-size: .85rem">&epsilon;<sup>m</sup> = True strain</p>
+            <p style="margin:0rem 0rem 2rem 4.5rem; font-size: .85rem">m = strain exponent</p>
+        </div>
+    </div>
+
+    <div class="row" id="row5">
+        <div class="col" id="col5-1">
+            <p style="margin:0rem 0rem 0rem 0rem;">New Ultimate Tensile Strength = {{ new_ultimate }} MPa</p>
+            <p>S'<sub>U</sub> = S<sub>U</sub> / (1 - W)</p>
+            <p style="margin:-.75rem 0rem 0rem 1.5rem; font-size: .85rem">Where: S'<sub>U</sub> = New ultimate tensile strength</p>
+            <p style="margin:0rem 0rem 0rem 4.5rem; font-size: .85rem">S<sub>U</sub> = Ultimate tensile strength</p>
+            <p style="margin:0rem 0rem 0rem 4.5rem; font-size: .85rem">W = Cold work percentage</p>
+        </div>
+    </div>
+
+</div>
+{% endif %}
+{% endblock %}
 
