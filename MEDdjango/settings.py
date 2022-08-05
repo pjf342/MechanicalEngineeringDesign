@@ -15,13 +15,12 @@ TEMPLATE_DIR = BASE_DIR.joinpath("pages/templates")
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret! <<<<<<< HEAD
-SECRET_KEY = 'SECRET_KEY'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['IPV4', 'HKA']
-
+ALLOWED_HOSTS = [os.getenv('IPV4'), os.getenv('HKA')]
 
 # Application definition
 
@@ -79,7 +78,7 @@ DATABASES = {
         'HOST': 'HHOST',
         'PORT': 'HPORT',
         'USER': 'HUSER',
-        'PASSWORD' : 'HPASSWORD',
+        'PASSWORD': 'HPASSWORD',
     }
 }
 
