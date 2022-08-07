@@ -1,35 +1,46 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
-  {% block content %}
-
-<form action="" id="scw-form" method="POST">
-    {% csrf_token %}
-    {{ PS_input.as_p }}
-
-    <button type="submit" class="btn btn-primary">Submit</button>
+<form action="" id="ps-form" method="POST">
+{% csrf_token %}
+    <div class="container" id="ps-container" style="background-color:lightgray; margin:3rem;padding:1.2rem;">
+        <div class="row" id="row1">
+            <div class="col" id="col1-1" style="margin:0rem 0rem 1rem 0rem;">
+                <a style="font-family:'Chakra Petch';">{{ PS_input.sigma_x.label }}</a>
+                <a style="font-family:'Chakra Petch';">{{ PS_input.sigma_x }}</a>
+            </div>
+        </div>
+        <div class="row" id="row2">
+            <div class="col" id="col2-1" style="margin:0rem 0rem 1rem 0rem;">
+                <a style="font-family:'Chakra Petch';">{{ PS_input.sigma_y.label }}</a>
+                <a style="font-family:'Chakra Petch';">{{ PS_input.sigma_y }}</a>
+            </div>
+        </div>
+        <div class="row" id="row3">
+            <div class="col" id="col3-1" style="margin:0rem 0rem 1rem 0rem;">
+                <a style="font-family:'Chakra Petch';">{{ PS_input.tau_xy.label }}</a>
+                <a style="font-family:'Chakra Petch';">{{ PS_input.tau_xy }}</a>
+            </div>
+        </div>
+        <div class="row" id="row4">
+            <div class="col" id="col4-1">
+                <button type="submit" class="btn" style="font-family:'Chakra Petch'; background-color:LightSteelBlue;border-color:black;">Submit</button>
+            </div>
+        </div>
+    </div>
 </form>
-    {% if s_avg != None %}
-    {{ s_avg }} |
-    {% endif %}
-    {% if s1 != None %}
-    {{ s1 }} |
-    {% endif %}
-    {% if s2 != None %}
-    {{ s2 }} |
-    {% endif %}
-    {% if phi1 != None %}
-    {{ phi1 }} |
-    {% endif %}
-    {% if phi2 != None %}
-    {{ phi2 }} |
-    {% endif %}
-    {% if t_max != None %}
-    {{ t_max }} |
-    {% endif %}
-    {% if shear_phi1 != None %}
-    {{ shear_phi1 }} |
-    {% endif %}
-    {% if shear_phi2 != None %}
-    {{ shear_phi2 }} |
-    {% endif %}
-  {% endblock %}
+
+{% if s_avg != None %}
+<div class="container" id="output_container" style="background-color:lightgray; margin:3rem;padding:1.2rem;">
+    <p>Average normal stress (&sigma;<sub>avg</sub>): {{ s_avg }} MPa</p>
+    <p>Principal stress 1 (&sigma;<sub>1</sub>): {{ s1 }} MPa</p>
+    <p>Principal stress 2 (&sigma;<sub>2</sub>): {{ s2 }} MPa</p>
+    <p>Angle to reach principal stress 1 (&phi;<sub>1</sub>): {{ phi1 }}&deg;</p>
+    <p>Angle to reach principal stress 2 (&phi;<sub>2</sub>): {{ phi2 }}&deg;</p>
+    <p>Maximum shear stress (&tau;<sub>max</sub>): {{ t_max }} MPa</p>
+<!--    <p>Angle to teach maximum shear stress 1 {{ shear_phi1 }}</p>-->
+<!--    <p>Angle to teach maximum shear stress 2 {{ shear_phi2 }}</p>-->
+</div>
+{% endif %}
+{% endblock %}

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
+from django.core.exceptions import ValidationError
 
 SURFACE_CHOICES = [
     ('IN', 'Inner Surface'),
@@ -44,6 +44,10 @@ class inputPSform(forms.Form):
     sigma_x = forms.FloatField(label='Sigma X', widget=forms.NumberInput(attrs={'placeholder': ''}))
     sigma_y = forms.FloatField(label='Sigma Y', widget=forms.NumberInput(attrs={'placeholder': ''}))
     tau_xy = forms.FloatField(label='Tau XY', widget=forms.NumberInput(attrs={'placeholder': ''}))
+
+    # def clean(self):
+    #     if self.cleaned_data('sigma_x') == self.cleaned_data('sigma_y'):
+    #         raise forms.ValidationError('Sigma X and Sigma Y can not be the same value.')
 
 
 class RegisterForm(UserCreationForm):
