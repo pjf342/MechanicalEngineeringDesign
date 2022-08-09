@@ -41,9 +41,9 @@ class inputSCWform(forms.Form):
 
 
 class inputPSform(forms.Form):
-    sigma_x = forms.FloatField(label='Sigma X', widget=forms.NumberInput(attrs={'placeholder': ''}))
-    sigma_y = forms.FloatField(label='Sigma Y', widget=forms.NumberInput(attrs={'placeholder': ''}))
-    tau_xy = forms.FloatField(label='Tau XY', widget=forms.NumberInput(attrs={'placeholder': ''}))
+    sigma_x = forms.FloatField(label='Sigma X', widget=forms.NumberInput(attrs={'placeholder': 'MPa'}))
+    sigma_y = forms.FloatField(label='Sigma Y', widget=forms.NumberInput(attrs={'placeholder': 'MPa'}))
+    tau_xy = forms.FloatField(label='Tau XY', widget=forms.NumberInput(attrs={'placeholder': 'MPa'}))
 
     # def clean(self):
     #     if self.cleaned_data('sigma_x') == self.cleaned_data('sigma_y'):

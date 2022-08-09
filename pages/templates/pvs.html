@@ -4,22 +4,57 @@
 
 <form action="" id="pvs-form" method="POST">
     {% csrf_token %}
-
-
-    {{ PVS_input.as_p }}
-
-
-
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="container" id="pvs-container" style="background-color:lightgray; margin:3rem;padding:1.2rem;">
+        <div class="row" id="row1">
+            <div class="col" id="col1-1" style="margin:0rem 0rem 1rem 0rem;">
+                <a style="font-family:'Chakra Petch';">{{ PVS_input.surface.label }}</a>
+                <a style="font-family:'Chakra Petch';">{{ PVS_input.surface }}</a>
+            </div>
+        </div>
+        <div class="row" id="row2">
+            <div class="col" id="col2-1" style="margin:0rem 0rem 1rem 0rem;">
+                <a style="font-family:'Chakra Petch';">{{ PVS_input.capped.label }}</a>
+                <a style="font-family:'Chakra Petch';">{{ PVS_input.capped }}</a>
+            </div>
+        </div>
+        <div class="row" id="row3">
+            <div class="col" id="col3-1" style="margin:0rem 0rem 1rem 0rem;">
+                <a style="font-family:'Chakra Petch';">{{ PVS_input.po.label }}</a>
+                <a style="font-family:'Chakra Petch';">{{ PVS_input.po }}</a>
+            </div>
+        </div>
+        <div class="row" id="row4">
+            <div class="col" id="col4-1" style="margin:0rem 0rem 1rem 0rem;">
+                <a style="font-family:'Chakra Petch';">{{ PVS_input.pi.label }}</a>
+                <a style="font-family:'Chakra Petch';">{{ PVS_input.pi }}</a>
+            </div>
+        </div>
+        <div class="row" id="row5">
+            <div class="col" id="col5-1" style="margin:0rem 0rem 1rem 0rem;">
+                <a style="font-family:'Chakra Petch';">{{ PVS_input.do.label }}</a>
+                <a style="font-family:'Chakra Petch';">{{ PVS_input.do }}</a>
+            </div>
+        </div>
+        <div class="row" id="row6">
+            <div class="col" id="col6-1" style="margin:0rem 0rem 1rem 0rem;">
+                <a style="font-family:'Chakra Petch';">{{ PVS_input.di.label }}</a>
+                <a style="font-family:'Chakra Petch';">{{ PVS_input.di }}</a>
+            </div>
+        </div>
+        <div class="row" id="row7">
+            <div class="col" id="col7-1" style="margin:0rem 0rem 1rem 0rem;">
+                <button type="submit" class="btn" style="font-family:'Chakra Petch'; background-color:LightSteelBlue;border-color:black;">Submit</button>
+            </div>
+        </div>
+    </div>
 </form>
-    {% if st != None %}
-    {{ st }}
-    {% endif %}
-    {% if sr != None %}
-    {{ sr }}
-    {% endif %}
-    {% if sa != None %}
-    {{ sa }}
-    {% endif %}
-  {% endblock %}
+{% if st != None %}
+<div class="container" id="output_container" style="background-color:lightgray; margin:3rem;padding:1.2rem;">
+    <p>Tangential Stress: {{ st }} Pa = {{ st_mpa }} MPa</p>
+    <p>Radial Stress: {{ sr }} Pa = {{ sr_mpa }} MPa</p>
+    <p>Axial Stress: {{ sa }} Pa = {{ sa_mpa }} MPa</p>
+</div>
+
+{% endif %}
+{% endblock %}
 

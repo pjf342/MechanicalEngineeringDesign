@@ -14,6 +14,9 @@ def pvs_view(request, *args, **kwargs):
     st = None
     sr = None
     sa = None
+    st_mpa = None
+    sr_mpa = None
+    sa_mpa = None
     if request.method == 'POST':
         PVS_input = inputPVSform(request.POST)
         if PVS_input.is_valid():
@@ -31,12 +34,17 @@ def pvs_view(request, *args, **kwargs):
             di = float(request.POST.get('di'))
 
             PVS = PressureVesselStress.PressureVesselStress(surface, capped, po, pi, do, di)
-            st = float(PVS.stress_t * 1000)
-            sr = float(PVS.stress_r * 1000)
-            sa = float(PVS.stress_a * 1000)
+            st = float("{:.3f}".format(PVS.stress_t * 1000))
+            sr = float("{:.3f}".format(PVS.stress_r * 1000))
+            sa = float("{:.3f}".format(PVS.stress_a * 1000))
+            st_mpa = float("{:.3f}".format(st / (10 ** 6)))
+            sr_mpa = float("{:.3f}".format(sr / (10 ** 6)))
+            sa_mpa = float("{:.3f}".format(sa / (10 ** 6)))
+
     else:
         PVS_input = inputPVSform()
-    PVS_data = {'PVS_input': PVS_input, 'st': st, 'sr': sr, 'sa': sa}
+    PVS_data = {'PVS_input': PVS_input, 'st': st, 'sr': sr, 'sa': sa, 'st_mpa': st_mpa, 'sr_mpa': sr_mpa,
+                'sa_mpa': sa_mpa}
     return render(request, 'pvs.html', PVS_data)
 
 
