@@ -18,7 +18,7 @@ TEMPLATE_DIR = BASE_DIR.joinpath("pages/templates")
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [os.getenv('IPV4'), os.getenv('HKA')]
 
